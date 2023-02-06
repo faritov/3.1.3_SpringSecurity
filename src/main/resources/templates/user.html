@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body>
+
+<h2>Personal page for: </h2>
+<h3>
+  <div th:utext="${user.firstname}">.</div>
+  <div th:utext="${user.lastname}">.</div></h3>
+
+
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Roles</th>
+        </tr>
+        <tr>
+            <td th:utext="${user.id}">...</td>
+            <td th:utext="${user.username}">...</td>
+            <td th:utext="${user.firstname}">...</td>
+            <td th:utext="${user.lastname}">...</td>
+            <td th:utext="${user.email}">...</td>
+            <td th:utext="${user.listOfRoles()}">...</td>
+
+        </tr>
+    </table>
+
+</div>
+<br><br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
